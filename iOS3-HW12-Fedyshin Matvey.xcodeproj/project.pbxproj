@@ -8,9 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		FA1AFA06274463F800C42848 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1AFA05274463F800C42848 /* AppDelegate.swift */; };
-		FA1AFA08274463F800C42848 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1AFA07274463F800C42848 /* SceneDelegate.swift */; };
 		FA1AFA0A274463F800C42848 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1AFA09274463F800C42848 /* ViewController.swift */; };
-		FA1AFA0D274463F800C42848 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA1AFA0B274463F800C42848 /* Main.storyboard */; };
 		FA1AFA0F274463FB00C42848 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA1AFA0E274463FB00C42848 /* Assets.xcassets */; };
 		FA1AFA12274463FB00C42848 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA1AFA10274463FB00C42848 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
@@ -18,9 +16,7 @@
 /* Begin PBXFileReference section */
 		FA1AFA02274463F800C42848 /* iOS3-HW12-Fedyshin Matvey.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "iOS3-HW12-Fedyshin Matvey.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA1AFA05274463F800C42848 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		FA1AFA07274463F800C42848 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		FA1AFA09274463F800C42848 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		FA1AFA0C274463F800C42848 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		FA1AFA0E274463FB00C42848 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FA1AFA11274463FB00C42848 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FA1AFA13274463FB00C42848 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -56,15 +52,53 @@
 		FA1AFA04274463F800C42848 /* iOS3-HW12-Fedyshin Matvey */ = {
 			isa = PBXGroup;
 			children = (
-				FA1AFA05274463F800C42848 /* AppDelegate.swift */,
-				FA1AFA07274463F800C42848 /* SceneDelegate.swift */,
-				FA1AFA09274463F800C42848 /* ViewController.swift */,
-				FA1AFA0B274463F800C42848 /* Main.storyboard */,
-				FA1AFA0E274463FB00C42848 /* Assets.xcassets */,
-				FA1AFA10274463FB00C42848 /* LaunchScreen.storyboard */,
-				FA1AFA13274463FB00C42848 /* Info.plist */,
+				FA1AFA1B2744671200C42848 /* Sources */,
+				FA1AFA19274466E300C42848 /* Resources */,
 			);
 			path = "iOS3-HW12-Fedyshin Matvey";
+			sourceTree = "<group>";
+		};
+		FA1AFA19274466E300C42848 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				FA1AFA1A274466F400C42848 /* Configs */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		FA1AFA1A274466F400C42848 /* Configs */ = {
+			isa = PBXGroup;
+			children = (
+				FA1AFA13274463FB00C42848 /* Info.plist */,
+				FA1AFA10274463FB00C42848 /* LaunchScreen.storyboard */,
+				FA1AFA0E274463FB00C42848 /* Assets.xcassets */,
+			);
+			path = Configs;
+			sourceTree = "<group>";
+		};
+		FA1AFA1B2744671200C42848 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				FA1AFA1E2744674A00C42848 /* Scenes */,
+				FA1AFA1D2744674300C42848 /* App */,
+				FA1AFA05274463F800C42848 /* AppDelegate.swift */,
+			);
+			path = Sources;
+			sourceTree = "<group>";
+		};
+		FA1AFA1D2744674300C42848 /* App */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		FA1AFA1E2744674A00C42848 /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				FA1AFA09274463F800C42848 /* ViewController.swift */,
+			);
+			path = Scenes;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -126,7 +160,6 @@
 			files = (
 				FA1AFA12274463FB00C42848 /* LaunchScreen.storyboard in Resources */,
 				FA1AFA0F274463FB00C42848 /* Assets.xcassets in Resources */,
-				FA1AFA0D274463F800C42848 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -139,21 +172,12 @@
 			files = (
 				FA1AFA0A274463F800C42848 /* ViewController.swift in Sources */,
 				FA1AFA06274463F800C42848 /* AppDelegate.swift in Sources */,
-				FA1AFA08274463F800C42848 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		FA1AFA0B274463F800C42848 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				FA1AFA0C274463F800C42848 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		FA1AFA10274463FB00C42848 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -288,7 +312,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 986NFG9Y4U;
-				INFOPLIST_FILE = "iOS3-HW12-Fedyshin Matvey/Info.plist";
+				INFOPLIST_FILE = "iOS3-HW12-Fedyshin Matvey/Resources/Configs/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -307,7 +331,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 986NFG9Y4U;
-				INFOPLIST_FILE = "iOS3-HW12-Fedyshin Matvey/Info.plist";
+				INFOPLIST_FILE = "iOS3-HW12-Fedyshin Matvey/Resources/Configs/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
