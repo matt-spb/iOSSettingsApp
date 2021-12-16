@@ -16,7 +16,6 @@ var window: UIWindow?
 
         window = UIWindow(frame: UIScreen.main.bounds)
 
-//        let viewController = ViewController()
         let viewController = ViewController(nibName: nil, bundle: nil)
 
         let navigationController = UINavigationController(rootViewController: viewController)
