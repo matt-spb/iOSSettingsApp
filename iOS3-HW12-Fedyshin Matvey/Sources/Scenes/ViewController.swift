@@ -7,8 +7,6 @@
 
 import UIKit
 
-// добавить еще один тип с дитейл лейбл
-
 struct Section {
     let options: [SettingsOptionsType]
 }
@@ -16,6 +14,14 @@ struct Section {
 enum SettingsOptionsType {
     case staticCell(model: SettingsOption)
     case switchCell(model: SettingsSwitchOption)
+    case detailCell(model: SettingsDetailOption)
+}
+
+struct SettingsDetailOption {
+    let title: String
+    let detailInfo: String
+    let icon: UIImage!
+    let backgroundColor: UIColor
 }
 
 struct SettingsSwitchOption {
@@ -46,6 +52,7 @@ class ViewController: UIViewController {
         view.addSubview(tableView)
         tableView.register(RegularTableViewCell.self, forCellReuseIdentifier: RegularTableViewCell.identifier)
         tableView.register(SwitchTableViewCell.self, forCellReuseIdentifier: SwitchTableViewCell.identifier)
+        tableView.register(DetailTableViewCell.self, forCellReuseIdentifier: DetailTableViewCell.identifier)
 
         tableView.delegate = self
         tableView.dataSource = self
@@ -61,9 +68,9 @@ class ViewController: UIViewController {
 
     private func setupModel() {
         model.append(Section(options: [
-            .switchCell(model: SettingsSwitchOption(title: "Airplane Mode", icon: UIImage(systemName: "airplane"), backgroundColor: .systemOrange, isOn: true)),
-            .staticCell(model: SettingsOption(title: "Wi-Fi", icon: UIImage(systemName: "wifi"), backgroundColor: .systemBlue)),
-            .staticCell(model: SettingsOption(title: "Bluetooth", icon: UIImage(named: "bluetooth"), backgroundColor: .systemBlue)),
+            .switchCell(model: SettingsSwitchOption(title: "Airplane Mode", icon: UIImage(systemName: "airplane"), backgroundColor: .systemOrange, isOn: false)),
+            .detailCell(model: SettingsDetailOption(title: "Wi-Fi", detailInfo: "Home WiFi", icon: UIImage(systemName: "wifi"), backgroundColor: .systemBlue)),
+            .detailCell(model: SettingsDetailOption(title: "Bluetooth", detailInfo: "On", icon: UIImage(named: "bluetooth"), backgroundColor: .systemBlue)),
             .staticCell(model: SettingsOption(title: "Mobile Data", icon: UIImage(systemName: "antenna.radiowaves.left.and.right"), backgroundColor: .systemGreen)),
             .staticCell(model: SettingsOption(title: "Personal Hotspot", icon: UIImage(systemName: "personalhotspot"), backgroundColor: .systemGreen))
         ]))
@@ -118,6 +125,10 @@ extension ViewController: UITableViewDataSource {
                 guard let cell = tableView.dequeueReusableCell(withIdentifier: SwitchTableViewCell.identifier, for: indexPath) as? SwitchTableViewCell else { return SwitchTableViewCell() }
                 cell.setup(with: model)
                 return cell
+            case .detailCell(let model):
+                guard let cell = tableView.dequeueReusableCell(withIdentifier: DetailTableViewCell.identifier, for: indexPath) as? DetailTableViewCell else { return UITableViewCell() }
+                cell.setup(with: model)
+                return cell
         }
     }
 }
@@ -132,6 +143,8 @@ extension ViewController: UITableViewDelegate {
             case .staticCell(let model):
                 print("Нажата ячейка \(model.title)")
             case .switchCell(let model):
+                print("Нажата ячейка \(model.title)")
+            case .detailCell(let model):
                 print("Нажата ячейка \(model.title)")
         }
     }

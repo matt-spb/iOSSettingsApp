@@ -21,7 +21,6 @@ var window: UIWindow?
         let navigationController = UINavigationController(rootViewController: viewController)
 
         navigationController.navigationBar.prefersLargeTitles = true
-        viewController.title = "Настройки"
 
         window?.rootViewController = navigationController
         window?.makeKeyAndVisible()

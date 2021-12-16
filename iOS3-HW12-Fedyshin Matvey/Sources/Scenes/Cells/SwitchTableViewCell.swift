@@ -27,10 +27,16 @@ class SwitchTableViewCell: UITableViewCell {
         let mySwitch = UISwitch()
         mySwitch.isOn = false
         mySwitch.onTintColor = .systemBlue
+        mySwitch.addTarget(self, action: #selector(switchChanged), for: UIControl.Event.valueChanged)
 
         return mySwitch
     }()
 
+    @objc func switchChanged(mySwitch: UISwitch) {
+        let state = mySwitch.isOn
+        print("Switch state changed to \(state ? "On" : "Off")")
+
+    }
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -70,7 +76,7 @@ class SwitchTableViewCell: UITableViewCell {
                              height: contentView.bounds.size.height)
 
         mySwitch.sizeToFit()
-        mySwitch.frame = CGRect(x: contentView.bounds.size.width - mySwitch.frame.size.width - 10,
+        mySwitch.frame = CGRect(x: contentView.bounds.size.width - mySwitch.frame.size.width - 20,
                                 y: (contentView.bounds.size.height - mySwitch.bounds.size.height) / 2,
                                 width: mySwitch.frame.size.width,
                                 height: mySwitch.frame.size.height)
@@ -89,5 +95,6 @@ class SwitchTableViewCell: UITableViewCell {
         label.text = nil
         icon.image = nil
         mySwitch.isOn = false
+        containerView.backgroundColor = nil
     }
 }
