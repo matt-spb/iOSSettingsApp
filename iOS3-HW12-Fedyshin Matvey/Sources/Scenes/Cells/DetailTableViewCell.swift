@@ -1,8 +1,8 @@
 import UIKit
 
-class RegularTableViewCell: UITableViewCell {
+class DetailTableViewCell: UITableViewCell {
 
-    static let identifier = "RegularTableViewCell"
+    static let identifier = "DetailTableViewCell"
 
     lazy var label: UILabel = {
         let label = UILabel()
@@ -26,6 +26,15 @@ class RegularTableViewCell: UITableViewCell {
         return view
     }()
 
+    lazy var detailLabel: UILabel = {
+        let label = UILabel()
+        label.textAlignment = .right
+        label.numberOfLines = 1
+        label.lineBreakMode = .byTruncatingTail
+
+        return label
+    }()
+
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
 
@@ -33,6 +42,7 @@ class RegularTableViewCell: UITableViewCell {
         contentView.addSubview(label)
         contentView.addSubview(containerView)
         containerView.addSubview(icon)
+        contentView.addSubview(detailLabel)
     }
 
     required init?(coder: NSCoder) {
@@ -59,14 +69,20 @@ class RegularTableViewCell: UITableViewCell {
 
         label.frame = CGRect(x: containerSize + 25,
                              y: 0,
-                             width: contentView.bounds.size.width - containerSize - 10,
+                             width: contentView.bounds.size.width / 2,
                              height: contentView.bounds.size.height)
+
+        detailLabel.frame = CGRect(x: contentView.frame.size.width / 2,
+                                   y: 0,
+                                   width: contentView.frame.size.width / 2 - 10,
+                                   height: contentView.bounds.size.height)
     }
 
-    public func setup(with model: SettingsOption) {
+    public func setup(with model: SettingsDetailOption) {
         icon.image = model.icon
         label.text = model.title
         containerView.backgroundColor = model.backgroundColor
+        detailLabel.text = model.detailInfo
     }
 
     override func prepareForReuse() {
@@ -74,6 +90,7 @@ class RegularTableViewCell: UITableViewCell {
 
         label.text = nil
         icon.image = nil
-
+        detailLabel.text = nil
+        containerView.backgroundColor = nil
     }
 }
