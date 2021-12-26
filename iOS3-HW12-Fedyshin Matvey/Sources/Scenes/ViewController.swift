@@ -42,8 +42,7 @@ class ViewController: UIViewController {
     var model = [Section]()
 
     lazy var tableView: UITableView = {
-        let table = UITableView(frame: .zero)
-
+        let table = UITableView(frame: .zero, style: .grouped)
         return table
     }()
 
