@@ -1,40 +1,26 @@
-//
-//  ViewController.swift
-//  TableView Practice
-//
-//  Created by matt_spb on 14.12.2021.
-//
-
 import UIKit
 
 class ViewController: UIViewController {
 
     var model = [Section]()
 
-    lazy var tableView: UITableView = {
-        let table = UITableView(frame: view.bounds, style: .grouped)
-        return table
-    }()
+    private var settingsView: SettingsView? {
+        guard isViewLoaded else { return nil }
+        return view as? SettingsView
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupTableView()
-        title = "Settings"
-        view.backgroundColor = .systemBackground
-        model = SettingsModel.createModels()
+        configure()
     }
 
-    private func setupTableView() {
-        view.addSubview(tableView)
-        tableView.register(RegularTableViewCell.self,
-                           forCellReuseIdentifier: RegularTableViewCell.identifier)
-        tableView.register(SwitchTableViewCell.self,
-                           forCellReuseIdentifier: SwitchTableViewCell.switchCellIdentifier)
-        tableView.register(DetailTableViewCell.self,
-                           forCellReuseIdentifier: DetailTableViewCell.detailCellIdentifier)
+    func configure() {
+        view = SettingsView()
+        title = "Settings"
 
-        tableView.delegate = self
-        tableView.dataSource = self
+        settingsView?.tableView.delegate = self
+        settingsView?.tableView.dataSource = self
+        model = SettingsModel.createModels()
     }
 }
 
@@ -51,21 +37,9 @@ extension ViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
         let model = model[indexPath.section].options[indexPath.row]
-
-        switch model.cellType {
-            case .regularCell:
-                guard let cell = tableView.dequeueReusableCell(withIdentifier: RegularTableViewCell.identifier, for: indexPath) as? RegularTableViewCell else { return UITableViewCell() }
-                cell.configure(with: model)
-                return cell
-            case .switchCell:
-                guard let cell = tableView.dequeueReusableCell(withIdentifier: SwitchTableViewCell.switchCellIdentifier, for: indexPath) as? SwitchTableViewCell else { return SwitchTableViewCell() }
-                cell.configure(with: model)
-                return cell
-            case .detailCell:
-                guard let cell = tableView.dequeueReusableCell(withIdentifier: DetailTableViewCell.detailCellIdentifier, for: indexPath) as? DetailTableViewCell else { return UITableViewCell() }
-                cell.configure(with: model)
-                return cell
-        }
+        guard let settingsView = settingsView else { return UITableViewCell() }
+        let cell = settingsView.getCell(for: model)
+        return cell
     }
 }
 
