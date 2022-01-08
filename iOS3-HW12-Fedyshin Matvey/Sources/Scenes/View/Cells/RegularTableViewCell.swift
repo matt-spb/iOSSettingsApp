@@ -6,23 +6,19 @@ class RegularTableViewCell: UITableViewCell {
 
     lazy var label: UILabel = {
         let label = UILabel()
-
         return label
     }()
 
     lazy var icon: UIImageView = {
         let image = UIImageView()
-
         image.contentMode = .scaleAspectFit
         return image
     }()
 
     lazy var containerView: UIView = {
         let view = UIView()
-
         view.layer.masksToBounds = true
         view.layer.cornerRadius = 8
-
         return view
     }()
 
@@ -63,17 +59,19 @@ class RegularTableViewCell: UITableViewCell {
                              height: contentView.bounds.size.height)
     }
 
-    public func setup(with model: SettingsOption) {
-        icon.image = model.icon
+    func configure(with model: SettingsOption) {
+        if model.iconName == "bluetooth" {
+            icon.image = UIImage(named: model.iconName)
+        } else {
+            icon.image = UIImage(systemName: model.iconName)
+        }
         label.text = model.title
         containerView.backgroundColor = model.backgroundColor
     }
 
     override func prepareForReuse() {
         super.prepareForReuse()
-
         label.text = nil
         icon.image = nil
-
     }
 }
