@@ -11,6 +11,12 @@
 		FA1AFA0A274463F800C42848 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1AFA09274463F800C42848 /* ViewController.swift */; };
 		FA1AFA0F274463FB00C42848 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA1AFA0E274463FB00C42848 /* Assets.xcassets */; };
 		FA1AFA12274463FB00C42848 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA1AFA10274463FB00C42848 /* LaunchScreen.storyboard */; };
+		FA1AFA242746F15500C42848 /* SwitchTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1AFA232746F15500C42848 /* SwitchTableViewCell.swift */; };
+		FA97962D27890458003642E6 /* SettingsOption.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA97962C27890458003642E6 /* SettingsOption.swift */; };
+		FA97962F2789051D003642E6 /* SettingsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA97962E2789051D003642E6 /* SettingsModel.swift */; };
+		FA9796312789DED6003642E6 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA9796302789DED6003642E6 /* SettingsView.swift */; };
+		FAD755A427496EEC000EC0B1 /* RegularTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD755A227496EEC000EC0B1 /* RegularTableViewCell.swift */; };
+		FAD755CC276BD51B000EC0B1 /* DetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD755CB276BD51B000EC0B1 /* DetailTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,6 +26,12 @@
 		FA1AFA0E274463FB00C42848 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FA1AFA11274463FB00C42848 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FA1AFA13274463FB00C42848 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FA1AFA232746F15500C42848 /* SwitchTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitchTableViewCell.swift; sourceTree = "<group>"; };
+		FA97962C27890458003642E6 /* SettingsOption.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsOption.swift; sourceTree = "<group>"; };
+		FA97962E2789051D003642E6 /* SettingsModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsModel.swift; sourceTree = "<group>"; };
+		FA9796302789DED6003642E6 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		FAD755A227496EEC000EC0B1 /* RegularTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegularTableViewCell.swift; sourceTree = "<group>"; };
+		FAD755CB276BD51B000EC0B1 /* DetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,7 +93,6 @@
 			children = (
 				FA1AFA1E2744674A00C42848 /* Scenes */,
 				FA1AFA1D2744674300C42848 /* App */,
-				FA1AFA05274463F800C42848 /* AppDelegate.swift */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -89,6 +100,7 @@
 		FA1AFA1D2744674300C42848 /* App */ = {
 			isa = PBXGroup;
 			children = (
+				FA1AFA05274463F800C42848 /* AppDelegate.swift */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -96,9 +108,47 @@
 		FA1AFA1E2744674A00C42848 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
-				FA1AFA09274463F800C42848 /* ViewController.swift */,
+				FA97962B2788F55C003642E6 /* Model */,
+				FA97962A2788F554003642E6 /* View */,
+				FA9796292788F549003642E6 /* Controller */,
 			);
 			path = Scenes;
+			sourceTree = "<group>";
+		};
+		FA1AFA222746F10C00C42848 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				FA1AFA232746F15500C42848 /* SwitchTableViewCell.swift */,
+				FAD755A227496EEC000EC0B1 /* RegularTableViewCell.swift */,
+				FAD755CB276BD51B000EC0B1 /* DetailTableViewCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		FA9796292788F549003642E6 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				FA1AFA09274463F800C42848 /* ViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		FA97962A2788F554003642E6 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				FA1AFA222746F10C00C42848 /* Cells */,
+				FA9796302789DED6003642E6 /* SettingsView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		FA97962B2788F55C003642E6 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				FA97962C27890458003642E6 /* SettingsOption.swift */,
+				FA97962E2789051D003642E6 /* SettingsModel.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -171,7 +221,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				FA1AFA0A274463F800C42848 /* ViewController.swift in Sources */,
+				FA9796312789DED6003642E6 /* SettingsView.swift in Sources */,
+				FAD755A427496EEC000EC0B1 /* RegularTableViewCell.swift in Sources */,
+				FA1AFA242746F15500C42848 /* SwitchTableViewCell.swift in Sources */,
+				FAD755CC276BD51B000EC0B1 /* DetailTableViewCell.swift in Sources */,
 				FA1AFA06274463F800C42848 /* AppDelegate.swift in Sources */,
+				FA97962F2789051D003642E6 /* SettingsModel.swift in Sources */,
+				FA97962D27890458003642E6 /* SettingsOption.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

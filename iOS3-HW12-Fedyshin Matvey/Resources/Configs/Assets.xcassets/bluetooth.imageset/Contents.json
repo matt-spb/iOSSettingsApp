@@ -1,0 +1,24 @@
+{
+  "images" : [
+    {
+      "filename" : "kisspng-runes-peace-symbols-viking-5b15910b893675.063891741528140043562.png",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "3x"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  },
+  "properties" : {
+    "template-rendering-intent" : "template"
+  }
+}
