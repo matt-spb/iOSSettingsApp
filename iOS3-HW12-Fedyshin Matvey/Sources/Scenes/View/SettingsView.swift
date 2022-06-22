@@ -42,7 +42,6 @@ final class SettingsView: UIView {
 
     private func setupHierarchy() {
         addSubview(tableView)
-
     }
 
     private func setupLayout() {
