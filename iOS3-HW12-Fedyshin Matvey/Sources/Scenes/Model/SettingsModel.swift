@@ -9,7 +9,7 @@ import UIKit
 
 final class SettingsModel {
 
-    static func createModels() -> [Section] {
+    func createModels() -> [Section] {
         return [
             Section(options: [
                 SettingsOption(cellType: .switchCell,

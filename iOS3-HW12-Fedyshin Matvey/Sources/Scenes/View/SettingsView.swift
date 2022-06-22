@@ -8,6 +8,8 @@
 import UIKit
 
 final class SettingsView: UIView {
+    
+    private var models = [Section]()
 
     lazy var tableView: UITableView = {
         let table = UITableView(frame: .zero, style: .grouped)
@@ -17,6 +19,9 @@ final class SettingsView: UIView {
                            forCellReuseIdentifier: SwitchTableViewCell.switchCellIdentifier)
         table.register(DetailTableViewCell.self,
                            forCellReuseIdentifier: DetailTableViewCell.detailCellIdentifier)
+        
+        table.delegate = self
+        table.dataSource = self
         return table
     }()
 
@@ -39,6 +44,11 @@ final class SettingsView: UIView {
     }
 
     //MARK: - Settings
+    
+    func configure(with models: [Section]) {
+        self.models = models
+        tableView.reloadData()
+    }
 
     private func setupHierarchy() {
         addSubview(tableView)
@@ -73,5 +83,32 @@ final class SettingsView: UIView {
                 cell.configure(with: model)
                 return cell
         }
+    }
+}
+
+extension SettingsView: UITableViewDataSource {
+
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return models.count
+    }
+
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return models[section].options.count
+    }
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+
+        let model = models[indexPath.section].options[indexPath.row]
+        let cell = getCell(for: model)
+        return cell
+    }
+}
+
+extension SettingsView: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+
+        let model = models[indexPath.section].options[indexPath.row]
+        print("Нажата ячейка \(model.title)")
     }
 }
